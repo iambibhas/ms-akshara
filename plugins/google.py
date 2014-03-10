@@ -19,8 +19,7 @@ class GooglePlugin(WillPlugin):
                 if resp_json['responseStatus'] != 200:
                     self.say("Couldn't fetch results: {}".format(resp_json['responseDetails']))
                 else:
-                    results = resp_json.get('responseData').get('results')
-                    for result in results:
-                        self.say("{title} -> {url}".format(title=result['titleNoFormatting'], url=result['url']), message=message)
+                    context = {'results': resp_json.get('responseData').get('results')}
+                    self.say(rendered_template("google_results.html", context), message=message, html=True)
 
-    
+
