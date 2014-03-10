@@ -1,5 +1,6 @@
 *.py[cod]
 pip-log.txt
 shelf.db
-    
+
 set_env_vars.sh
+venv
